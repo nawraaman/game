@@ -29,8 +29,6 @@ router.post('/', upload.single('image'), async (req, res) => {
   try {
     req.body.userId = req.session.user._id
     req.body.image = `/uploads/${req.file.filename}`
-    console.log({ file: req.file })
-    console.log({ body: req.body })
 
     await Game.create(req.body)
     res.redirect('/games')
@@ -51,8 +49,6 @@ router.get('/', async (req, res) => {
 })
 
 const calculateAverageRating = async (gameId) => {
-  console.log('here...')
-  console.log('gameId...', gameId)
   const reviews = await Review.find({ gameId })
   const totalReviews = reviews.length
 
@@ -100,7 +96,6 @@ router.delete('/:gameId', async (req, res) => {
 
         console.log(`File ${filePath} has been successfully removed.`)
 
-        // Delete the game document
         await game.deleteOne()
         res.redirect('/games')
       })
