@@ -8,7 +8,7 @@ const methodOverride = require('method-override')
 const morgan = require('morgan')
 const session = require('express-session')
 
-const isSignedIn = require('./middleware/is-signed-in')
+const isSignedIn = require('./middleware/is-Signed-in')
 const passUserToView = require('./middleware/pass-user-to-view.js')
 
 const port = process.env.PORT || '3000'
