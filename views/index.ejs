@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Recommendation</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body class="game-recommendation-page">
+    <div class="center-content">
+      <h1>Welcome to the Game Recommendation Site</h1>
+      <p>
+        Discover the ultimate platform for game enthusiasts! Our Game
+        Recommendation site helps you find your next favorite game effortlessly.
+        Whether you're a casual player or a hardcore gamer, explore personalized
+        suggestions, share your top picks, and connect with a community that
+        shares your passion for gaming. Start your journey today and level up
+        your gaming experience!
+      </p>
+      <% if (user) { %>
+      <p>Hello, <%= user.username %>!</p>
+      <div class="button-container">
+        <form action="/auth/sign-out" method="get">
+          <button type="submit">Sign Out</button>
+        </form>
+        <form action="/games" method="get">
+          <button type="submit">View Games</button>
+        </form>
+        <form action="/games/new" method="get">
+          <button type="submit">Add New Game</button>
+        </form>
+      </div>
+      <% } else { %>
+      <div class="button-container">
+        <form action="/auth/sign-up" method="get">
+          <button type="submit">Sign Up</button>
+        </form>
+        <form action="/auth/sign-in" method="get">
+          <button type="submit">Sign In</button>
+        </form>
+      </div>
+      <% } %>
+    </div>
+
+    <!-- Include the JavaScript for mouse movement background effect -->
+    <script>
+      document.addEventListener('mousemove', function (event) {
+        const x = (event.clientX / window.innerWidth) * 100 // Mouse X position as percentage of viewport width
+        const y = (event.clientY / window.innerHeight) * 100 // Mouse Y position as percentage of viewport height
+
+        // Apply the mouse position to background-position (e.g., "50% 50%" for centering)
+        document.body.style.backgroundPosition = `${x}% ${y}%`
+      })
+    </script>
+  </body>
+</html>

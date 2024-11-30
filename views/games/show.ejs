@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= game.gameName %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+
+    <!-- Center Content Wrapper -->
+    <div class="center-content">
+      <!-- Game and Reviews Container -->
+      <div class="game-reviews-container">
+        <!-- Game Details Section -->
+        <div class="game-details">
+          <h1><%= game.gameName %></h1>
+
+          <% if (game.image) { %>
+          <img src="<%= game.image %>" alt="<%= game.gameName %>" />
+          <% } %>
+
+          <div class="game-info">
+            <p><strong>Type:</strong> <%= game.type %></p>
+            <p><strong>Description:</strong> <%= game.description %></p>
+            <p><strong>Average Rating:</strong> <%= result %></p>
+          </div>
+        </div>
+
+        <!-- Reviews Section -->
+        <div class="reviews">
+          <h2>Reviews</h2>
+          <div class="review-list">
+            <% if (reviews.length > 0) { %> <% reviews.forEach(review => { %>
+            <div class="review-item">
+              <div class="review-rating">
+                <strong>Rating:</strong> <%= review.rating %>/5
+              </div>
+              <div class="review-comment">
+                <strong>Comment:</strong> <%= review.comment %>
+              </div>
+              <div class="review-user">
+                <strong>By:</strong> <%= review.userId ? review.userId.username
+                : "Anonymous" %>
+              </div>
+
+              <% if (user && user._id.toString() ===
+              review.userId._id.toString()) { %>
+              <div class="review-actions">
+                <a
+                  href="/games/<%= game._id %>/reviews/<%= review._id %>/edit?gameId=<%= game._id %>"
+                  >Edit</a
+                >
+                <form
+                  action="/games/<%= game._id %>/reviews/<%= review._id %>?_method=DELETE"
+                  method="POST"
+                  style="display: inline"
+                >
+                  <button type="submit">Delete</button>
+                </form>
+              </div>
+              <% } %>
+            </div>
+            <hr />
+            <% }); %> <% } else { %>
+            <p>No reviews yet. Be the first to leave one!</p>
+            <% } %>
+          </div>
+
+          <h3>Add a Review</h3>
+          <form action="/games/<%= game._id %>/reviews" method="POST">
+            <label for="rating">Rating:</label>
+            <input type="number" name="rating" min="1" max="5" required />
+            <label for="comment">Comment:</label>
+            <textarea name="comment" required></textarea>
+            <input type="hidden" value="<%= game._id %>" name="gameId" />
+            <button type="submit">Submit Review</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

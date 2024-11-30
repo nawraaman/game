@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Games</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Games</h1>
+    <div class="games-container">
+      <% if (games.length === 0) { %>
+      <p>No games available yet.</p>
+      <% } else { %> <% games.forEach(game => { %>
+      <div class="game-item">
+        <h2><a href="/games/<%= game._id %>"><%= game.gameName %></a></h2>
+
+        <% if (game.image) { %>
+        <img
+          src="<%= game.image %>"
+          alt="<%= game.gameName %>"
+          style="max-width: 200px"
+        />
+        <% } %>
+
+        <p><%= game.description %></p>
+
+        <% if (user && user._id.toString() === game.userId._id.toString()) { %>
+        <form
+          action="/games/<%= game._id %>/edit"
+          method="GET"
+          style="display: inline"
+        >
+          <button type="submit" class="edit">Edit</button>
+        </form>
+
+        <form
+          action="/games/<%= game._id %>?_method=DELETE"
+          method="POST"
+          style="display: inline"
+        >
+          <button type="submit" class="delete">Delete</button>
+        </form>
+        <% } %>
+      </div>
+      <% }) %> <% } %>
+    </div>
+  </body>
+</html>

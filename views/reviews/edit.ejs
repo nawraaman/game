@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+    <div class="form">
+      <h3>Edit Your Review</h3>
+
+      <form
+        action="/games/<%= gameId %>/reviews/<%= review._id %>?_method=PUT"
+        method="POST"
+      >
+        <label for="rating">Rating:</label>
+        <input
+          type="number"
+          name="rating"
+          min="1"
+          max="5"
+          value="<%= review.rating %>"
+          required
+        /><br /><br />
+
+        <label for="comment">Comment:</label>
+        <textarea name="comment" required><%= review.comment %></textarea
+        ><br /><br />
+
+        <button type="submit">Update Review</button>
+      </form>
+    </div>
+  </body>
+</html>

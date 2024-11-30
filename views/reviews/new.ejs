@@ -1,0 +1,9 @@
+<h1>Add a Review</h1>
+<form action="/reviews" method="POST">
+  <input type="hidden" name="gameId" value="<%= gameId %>" />
+  <label for="rating">Rating (1-5):</label>
+  <input type="number" name="rating" min="1" max="5" required />
+  <label for="comment">Comment:</label>
+  <textarea name="comment"></textarea>
+  <button type="submit">Submit</button>
+</form>

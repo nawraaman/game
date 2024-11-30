@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Game</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+    <div class="form">
+      <h1>Edit Game</h1>
+
+      <form
+        action="/games/<%= game._id %>?_method=PUT"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <label for="gameName">Game Name:</label>
+        <input
+          type="text"
+          id="gameName"
+          name="gameName"
+          value="<%= game.gameName %>"
+          required
+        />
+        <br />
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required>
+      <%= game.description %>
+    </textarea
+        >
+        <br />
+
+        <label for="type">Type:</label>
+        <input type="text" id="type" name="type" value="<%= game.type %>" />
+        <br />
+
+        <% if (game.image) { %>
+        <label>Current Image:</label>
+        <br />
+        <img
+          src="<%= game.image %>"
+          alt="<%= game.gameName %>"
+          style="max-width: 200px"
+        />
+        <br />
+        <% } %>
+
+        <label for="image">Upload New Image:</label>
+        <input type="file" id="image" name="image" accept="image/*" />
+        <br />
+
+        <button type="submit">Update Game</button>
+      </form>
+    </div>
+  </body>
+</html>

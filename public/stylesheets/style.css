@@ -1,0 +1,262 @@
+/* General Reset and Theme */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+/* Background for Game Recommendation Page */
+body.game-recommendation-page {
+  background-image: url('https://www.shutterstock.com/shutterstock/videos/1109620623/thumb/1.jpg?ip=x480');
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+  transition: background-position 0.1s ease-out;
+}
+
+h1,
+h2,
+h3 {
+  color: #2e3d5f;
+}
+
+a {
+  text-decoration: none;
+  color: #2e3d5f;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Welcome Text Styling */
+.center-content h1 {
+  font-size: 3rem; /* Larger font size for the welcoming message */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Different font style */
+  font-weight: bold;
+  color: #2e3d5f;
+  margin-bottom: 20px;
+}
+
+/* User Name Styling */
+.center-content p {
+  font-size: 1.5rem; /* Larger font size for the user's name */
+  font-family: 'Arial', sans-serif; /* You can choose a different font if desired */
+  color: #2e3d5f; /* Color for the user's name */
+  font-weight: 600; /* Slightly bolder font */
+  margin-top: 10px;
+}
+
+/* Button Container Styling */
+.button-container {
+  display: flex;
+  justify-content: center; /* Centers the buttons horizontally */
+  gap: 10px; /* Space between the buttons */
+  margin-top: 20px; /* Adds some space above the buttons */
+}
+
+/* Button Styling */
+button {
+  background-color: #2e3d5f;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #1a2c45;
+}
+
+button.edit,
+button.delete {
+  font-size: 14px;
+  padding: 8px 12px;
+  margin-right: 10px;
+}
+
+button.edit {
+  background-color: #2e3d5f; /* Blue for edit */
+}
+
+button.edit:hover {
+  background-color: #135ba1;
+}
+
+button.delete {
+  background-color: #e84545; /* Red for delete */
+}
+
+button.delete:hover {
+  background-color: #a43232;
+}
+
+/* Flexbox Navigation */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  background-color: #2e3d5f;
+  padding: 10px;
+}
+
+nav ul li {
+  margin-right: 15px;
+}
+
+nav ul li a {
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Containers */
+.center-content {
+  text-align: center; /* Center-align text */
+  max-width: 1200px; /* Adjust the container width */
+  margin: 0 auto; /* Horizontally center the container */
+  padding: 20px 15px; /* Add padding for spacing */
+}
+
+/* Game List Layout */
+.games-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 games per row */
+  gap: 20px; /* Space between items */
+  padding: 0;
+}
+
+.game-item {
+  background-color: #fff; /* Background for each game item */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.game-item:hover {
+  transform: translateY(-10px); /* Hover effect for the game item */
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #2e3d5f;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 8px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .games-container {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* 2 games per row on small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .games-container {
+    grid-template-columns: 1fr; /* 1 game per row on very small screens */
+  }
+}
+
+/* Game and Reviews Layout */
+.game-reviews-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 40px; /* Space between the columns */
+}
+
+.game-details {
+  flex: 1;
+  text-align: left;
+}
+
+.game-details h1 {
+  font-size: 2rem;
+}
+
+.game-details img {
+  max-width: 200px;
+  height: auto;
+  margin: 10px 0;
+}
+
+.game-info p {
+  margin: 10px 0;
+}
+
+/* Reviews Section */
+.reviews {
+  flex: 1;
+  text-align: left;
+}
+
+.review-list {
+  margin-top: 10px;
+}
+
+.review-item {
+  margin-bottom: 20px;
+}
+
+.review-rating,
+.review-comment,
+.review-user {
+  margin-bottom: 10px;
+}
+
+.review-actions a,
+.review-actions button {
+  background-color: #2e3d5f;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.review-actions a:hover,
+.review-actions button:hover {
+  background-color: #135ba1;
+}
+
+.review-actions form {
+  display: inline-block;
+}
+
+/* Review Form Styling */
+form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form {
+  width: 90%;
+  max-width: 900px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}

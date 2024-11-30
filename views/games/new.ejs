@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Game</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+    <div class="form">
+      <h1>Add a New Game</h1>
+      <form action="/games" method="POST" enctype="multipart/form-data">
+        <label for="gameName">Game Name:</label>
+        <input type="text" name="gameName" required /><br /><br />
+        <label for="description">Description:</label>
+        <textarea name="description" required></textarea><br /><br />
+        <label for="type">Game Type:</label>
+        <input type="text" name="type" required /><br /><br />
+        <label for="image">Upload image:</label>
+        <input
+          type="file"
+          name="image"
+          id="image"
+          accept="image/*"
+        /><br /><br />
+        <button type="submit">Add Game</button>
+      </form>
+    </div>
+  </body>
+</html>
