@@ -1,9 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const Review = require('../models/review')
-const Game = require('../models/game') // Ensure the Game model is imported
+const Game = require('../models/game')
 
-// Helper function to calculate the average rating
 const calculateAverageRating = async (gameId) => {
   const reviews = await Review.find({ gameId })
   const totalReviews = reviews.length
@@ -13,7 +12,6 @@ const calculateAverageRating = async (gameId) => {
   return totalRating / totalReviews
 }
 
-// Create a new review
 router.post('/', async (req, res) => {
   try {
     const { rating, comment, gameId } = req.body
@@ -28,14 +26,13 @@ router.post('/', async (req, res) => {
     const averageRating = await calculateAverageRating(gameId)
     await Game.findByIdAndUpdate(gameId, { averageRating })
 
-    res.redirect(`/games/${gameId}`) // Redirect to show.ejs
+    res.redirect(`/games/${gameId}`)
   } catch (error) {
     console.error(error)
     res.redirect('/')
   }
 })
 
-// Edit a review (GET)
 router.get('/:reviewId/edit', async (req, res) => {
   try {
     const { reviewId } = req.params
@@ -53,7 +50,6 @@ router.get('/:reviewId/edit', async (req, res) => {
   }
 })
 
-// Update a review (PUT)
 router.put('/:reviewId', async (req, res) => {
   try {
     const { reviewId } = req.params
@@ -69,7 +65,7 @@ router.put('/:reviewId', async (req, res) => {
       const averageRating = await calculateAverageRating(gameId)
       await Game.findByIdAndUpdate(gameId, { averageRating })
 
-      res.redirect(`/games/${gameId}`) // Redirect to show.ejs
+      res.redirect(`/games/${gameId}`)
     } else {
       res.send("You don't have permission to update this review.")
     }
@@ -91,7 +87,7 @@ router.delete('/:reviewId', async (req, res) => {
       const averageRating = await calculateAverageRating(gameId)
       await Game.findByIdAndUpdate(gameId, { averageRating })
 
-      res.redirect(`/games/${gameId}`) // Redirect to show.ejs
+      res.redirect(`/games/${gameId}`)
     } else {
       res.send("You don't have permission to delete this review.")
     }

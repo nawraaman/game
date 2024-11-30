@@ -14,7 +14,6 @@ const userSchema = new mongoose.Schema(
     }
   },
   {
-    // This will create two fields in the table (createdAT, updatedAT) automatically and updated by mongoDB
     timestamps: true
   }
 )

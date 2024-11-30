@@ -42,13 +42,12 @@
       <% } %>
     </div>
 
-    <!-- Include the JavaScript for mouse movement background effect -->
     <script>
       document.addEventListener('mousemove', function (event) {
         const x = (event.clientX / window.innerWidth) * 100 // Mouse X position as percentage of viewport width
         const y = (event.clientY / window.innerHeight) * 100 // Mouse Y position as percentage of viewport height
 
-        // Apply the mouse position to background-position (e.g., "50% 50%" for centering)
+        // Apply the mouse position to background-position
         document.body.style.backgroundPosition = `${x}% ${y}%`
       })
     </script>

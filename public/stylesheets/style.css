@@ -1,11 +1,10 @@
-/* General Reset and Theme */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   color: #333;
 }
-/* Background for Game Recommendation Page */
+
 body.game-recommendation-page {
   background-image: url('https://www.shutterstock.com/shutterstock/videos/1109620623/thumb/1.jpg?ip=x480');
   background-size: cover;
@@ -29,33 +28,29 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Welcome Text Styling */
 .center-content h1 {
-  font-size: 3rem; /* Larger font size for the welcoming message */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Different font style */
+  font-size: 48px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: bold;
   color: #2e3d5f;
   margin-bottom: 20px;
 }
 
-/* User Name Styling */
 .center-content p {
-  font-size: 1.5rem; /* Larger font size for the user's name */
-  font-family: 'Arial', sans-serif; /* You can choose a different font if desired */
-  color: #2e3d5f; /* Color for the user's name */
-  font-weight: 600; /* Slightly bolder font */
+  font-size: 24px;
+  font-family: 'Arial', sans-serif;
+  color: #2e3d5f;
+  font-weight: 600;
   margin-top: 10px;
 }
 
-/* Button Container Styling */
 .button-container {
   display: flex;
-  justify-content: center; /* Centers the buttons horizontally */
-  gap: 10px; /* Space between the buttons */
-  margin-top: 20px; /* Adds some space above the buttons */
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
 }
 
-/* Button Styling */
 button {
   background-color: #2e3d5f;
   color: #fff;
@@ -79,7 +74,7 @@ button.delete {
 }
 
 button.edit {
-  background-color: #2e3d5f; /* Blue for edit */
+  background-color: #2e3d5f;
 }
 
 button.edit:hover {
@@ -87,14 +82,13 @@ button.edit:hover {
 }
 
 button.delete {
-  background-color: #e84545; /* Red for delete */
+  background-color: #e84545;
 }
 
 button.delete:hover {
   background-color: #a43232;
 }
 
-/* Flexbox Navigation */
 nav ul {
   list-style: none;
   display: flex;
@@ -112,24 +106,22 @@ nav ul li a {
   font-weight: bold;
 }
 
-/* Containers */
 .center-content {
-  text-align: center; /* Center-align text */
-  max-width: 1200px; /* Adjust the container width */
-  margin: 0 auto; /* Horizontally center the container */
-  padding: 20px 15px; /* Add padding for spacing */
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 15px;
 }
 
-/* Game List Layout */
 .games-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 games per row */
-  gap: 20px; /* Space between items */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
   padding: 0;
 }
 
 .game-item {
-  background-color: #fff; /* Background for each game item */
+  background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 15px;
@@ -138,11 +130,11 @@ nav ul li a {
 }
 
 .game-item:hover {
-  transform: translateY(-10px); /* Hover effect for the game item */
+  transform: translateY(-10px);
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 24px;
   color: #2e3d5f;
 }
 
@@ -153,28 +145,23 @@ img {
   margin-bottom: 10px;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .games-container {
-    grid-template-columns: repeat(
-      2,
-      1fr
-    ); /* 2 games per row on small screens */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 480px) {
   .games-container {
-    grid-template-columns: 1fr; /* 1 game per row on very small screens */
+    grid-template-columns: 1fr;
   }
 }
 
-/* Game and Reviews Layout */
 .game-reviews-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: 40px; /* Space between the columns */
+  gap: 40px;
 }
 
 .game-details {
@@ -183,7 +170,7 @@ img {
 }
 
 .game-details h1 {
-  font-size: 2rem;
+  font-size: 32px;
 }
 
 .game-details img {
@@ -194,9 +181,13 @@ img {
 
 .game-info p {
   margin: 10px 0;
+  font-weight: normal;
 }
 
-/* Reviews Section */
+.game-info p strong {
+  font-weight: bold;
+}
+
 .reviews {
   flex: 1;
   text-align: left;
@@ -234,7 +225,6 @@ img {
   display: inline-block;
 }
 
-/* Review Form Styling */
 form label {
   display: block;
   margin-bottom: 8px;
