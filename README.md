@@ -18,7 +18,7 @@ This app was built to create a community-driven platform where gamers can share 
 
 ### **Deployed Application**
 
-You can access the live application here: [Game Review Platform](#)
+You can access the live application here: [Game Review Platform](https://game-k645.onrender.com/)
 
 ## Wire Frame:
 
