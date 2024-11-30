@@ -79,7 +79,7 @@ You can access the live application here: [Game Review Platform](#)
    - _Acceptance Criteria:_ - I can upload an image when adding a game. - The image is displayed on the game’s details page.
      when someone play a game and want to share a feedback and review about it, or when a developer implement an game and want to share it to see the review the rate and the comment about it, or when someone lost and want to search about a game and see the review.
 
-## pseudocode
+## Pseudocode
 
 Add a Game
 Authenticated users can upload a game using a form that collects the game’s name, description, type, and an optional image. The form submission triggers a POST request to the server. The server validates the inputs, processes the image upload (using middleware like Multer), and stores the data in the database. Once added, the game appears dynamically on the games list, complete with its details and the uploaded image.
@@ -105,10 +105,6 @@ The image upload functionality integrates with game addition and editing workflo
 ## ERD
 
 ![ERD](ERD.png)
-
-## Attributes:
-
-https://css-tricks.com/moving-backgrounds-with-mouse-position/
 
 ## **Attributions**
 
