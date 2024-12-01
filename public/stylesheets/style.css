@@ -94,7 +94,9 @@ nav ul {
   display: flex;
   justify-content: flex-start;
   background-color: #2e3d5f;
-  padding: 10px;
+  padding: 20px;
+  margin-top: 0;
+  position: sticky;
 }
 
 nav ul li {

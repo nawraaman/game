@@ -67,9 +67,8 @@ router.get('/:gameId', async (req, res) => {
     const reviews = await Review.find({ gameId: req.params.gameId }).populate(
       'userId'
     )
-    console.log('reviews', reviews)
+
     let result = await calculateAverageRating(req.params.gameId)
-    console.log('res', result)
 
     res.render('games/show.ejs', { game, reviews, result })
   } catch (error) {
